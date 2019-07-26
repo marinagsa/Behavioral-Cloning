@@ -1,0 +1,85 @@
+(/opt/carnd_p3/behavioral) root@fe533694dd4e:/home/workspace/CarND-Behavioral-Cloning-P3# python drive.py model.h5 
+
+Using TensorFlow backend.
+2019-07-26 10:46:52.785974: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2019-07-26 10:46:52.786055: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2019-07-26 10:46:52.786068: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2019-07-26 10:46:52.786076: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2019-07-26 10:46:52.786092: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+2019-07-26 10:46:52.865191: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:893] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2019-07-26 10:46:52.865891: I tensorflow/core/common_runtime/gpu/gpu_device.cc:955] Found device 0 with properties: 
+name: Tesla K80
+major: 3 minor: 7 memoryClockRate (GHz) 0.8235
+pciBusID 0000:00:04.0
+Total memory: 11.17GiB
+Free memory: 11.09GiB
+2019-07-26 10:46:52.865943: I tensorflow/core/common_runtime/gpu/gpu_device.cc:976] DMA: 0 
+2019-07-26 10:46:52.865965: I tensorflow/core/common_runtime/gpu/gpu_device.cc:986] 0:   Y 
+2019-07-26 10:46:52.865991: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1045] Creating TensorFlow device (/gpu:0) -> (device: 0, name: Tesla K80, pci bus id: 0000:00:04.0)
+NOT RECORDING THIS RUN ...
+(1142) wsgi starting up on http://0.0.0.0:4567
+(1142) accepted ('127.0.0.1', 38121)
+connect  d19d9ed0d0cb4c3ca9db23a0859782b6
+message handler error
+Traceback (most recent call last):
+  File "/opt/carnd_p3/behavioral/lib/python3.5/site-packages/engineio/server.py", line 505, in _trigger_event
+    return self.handlers[event](*args)
+  File "/opt/carnd_p3/behavioral/lib/python3.5/site-packages/socketio/server.py", line 590, in _handle_eio_message
+    self._handle_event(sid, pkt.namespace, pkt.id, pkt.data)
+  File "/opt/carnd_p3/behavioral/lib/python3.5/site-packages/socketio/server.py", line 526, in _handle_event
+    self._handle_event_internal(self, sid, data, namespace, id)
+  File "/opt/carnd_p3/behavioral/lib/python3.5/site-packages/socketio/server.py", line 529, in _handle_event_internal
+    r = server._trigger_event(data[0], namespace, sid, *data[1:])
+  File "/opt/carnd_p3/behavioral/lib/python3.5/site-packages/socketio/server.py", line 558, in _trigger_event
+    return self.handlers[namespace][event](*args)
+  File "drive.py", line 64, in telemetry
+    steering_angle = float(model.predict(image_array[None, :, :, :], batch_size=1))
+  File "/opt/carnd_p3/behavioral/lib/python3.5/site-packages/keras/engine/training.py", line 1149, in predict
+    x, _, _ = self._standardize_user_data(x)
+  File "/opt/carnd_p3/behavioral/lib/python3.5/site-packages/keras/engine/training.py", line 751, in _standardize_user_data
+    exception_prefix='input')
+  File "/opt/carnd_p3/behavioral/lib/python3.5/site-packages/keras/engine/training_utils.py", line 138, in standardize_input_data
+    str(data_shape))
+ValueError: Error when checking input: expected lambda_1_input to have shape (90, 320, 3) but got array with shape (160, 320, 3)
+message handler error
+Traceback (most recent call last):
+  File "/opt/carnd_p3/behavioral/lib/python3.5/site-packages/engineio/server.py", line 505, in _trigger_event
+    return self.handlers[event](*args)
+  File "/opt/carnd_p3/behavioral/lib/python3.5/site-packages/socketio/server.py", line 590, in _handle_eio_message
+    self._handle_event(sid, pkt.namespace, pkt.id, pkt.data)
+  File "/opt/carnd_p3/behavioral/lib/python3.5/site-packages/socketio/server.py", line 526, in _handle_event
+    self._handle_event_internal(self, sid, data, namespace, id)
+  File "/opt/carnd_p3/behavioral/lib/python3.5/site-packages/socketio/server.py", line 529, in _handle_event_internal
+    r = server._trigger_event(data[0], namespace, sid, *data[1:])
+  File "/opt/carnd_p3/behavioral/lib/python3.5/site-packages/socketio/server.py", line 558, in _trigger_event
+    return self.handlers[namespace][event](*args)
+  File "drive.py", line 64, in telemetry
+    steering_angle = float(model.predict(image_array[None, :, :, :], batch_size=1))
+  File "/opt/carnd_p3/behavioral/lib/python3.5/site-packages/keras/engine/training.py", line 1149, in predict
+    x, _, _ = self._standardize_user_data(x)
+  File "/opt/carnd_p3/behavioral/lib/python3.5/site-packages/keras/engine/training.py", line 751, in _standardize_user_data
+    exception_prefix='input')
+  File "/opt/carnd_p3/behavioral/lib/python3.5/site-packages/keras/engine/training_utils.py", line 138, in standardize_input_data
+    str(data_shape))
+ValueError: Error when checking input: expected lambda_1_input to have shape (90, 320, 3) but got array with shape (160, 320, 3)
+message handler error
+Traceback (most recent call last):
+  File "/opt/carnd_p3/behavioral/lib/python3.5/site-packages/engineio/server.py", line 505, in _trigger_event
+    return self.handlers[event](*args)
+  File "/opt/carnd_p3/behavioral/lib/python3.5/site-packages/socketio/server.py", line 590, in _handle_eio_message
+    self._handle_event(sid, pkt.namespace, pkt.id, pkt.data)
+  File "/opt/carnd_p3/behavioral/lib/python3.5/site-packages/socketio/server.py", line 526, in _handle_event
+    self._handle_event_internal(self, sid, data, namespace, id)
+  File "/opt/carnd_p3/behavioral/lib/python3.5/site-packages/socketio/server.py", line 529, in _handle_event_internal
+    r = server._trigger_event(data[0], namespace, sid, *data[1:])
+  File "/opt/carnd_p3/behavioral/lib/python3.5/site-packages/socketio/server.py", line 558, in _trigger_event
+    return self.handlers[namespace][event](*args)
+  File "drive.py", line 64, in telemetry
+    steering_angle = float(model.predict(image_array[None, :, :, :], batch_size=1))
+  File "/opt/carnd_p3/behavioral/lib/python3.5/site-packages/keras/engine/training.py", line 1149, in predict
+    x, _, _ = self._standardize_user_data(x)
+  File "/opt/carnd_p3/behavioral/lib/python3.5/site-packages/keras/engine/training.py", line 751, in _standardize_user_data
+    exception_prefix='input')
+  File "/opt/carnd_p3/behavioral/lib/python3.5/site-packages/keras/engine/training_utils.py", line 138, in standardize_input_data
+    str(data_shape))
+ValueError: Error when checking input: expected lambda_1_input to have shape (90, 320, 3) but got array with shape (160, 320, 3)
