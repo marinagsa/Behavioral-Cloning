@@ -85,11 +85,9 @@ from keras.models import Model
 # Nvidia model     
 model = Sequential()
 # Preprocess incoming data, centered around zero with small standard deviation 
-# model.add(Lambda(lambda x: x/127.5 - 1.0, input_shape = (160, 320, 3) ))
-#model.add(Lambda(lambda x: x/255.0 - 0.5, input_shape = (160, 320, 3) ))
+
 model.add(Lambda(lambda x: x/255.0 - 0.5, input_shape = (90, 320, 3) )) #50,20
-#model.add(Lambda(lambda x: x/255.0 - 0.5, input_shape = (66, 200, 3) )) #50,20 + resize
-#model.add(Cropping2D(cropping=((50,20), (0,0))))
+
 model.add(Convolution2D(24, 5, 5, subsample=(2, 2), activation='elu')) # conv2d_1
 model.add(Convolution2D(36, 5, 5, subsample=(2, 2), activation='elu')) # conv2d_2
 model.add(Convolution2D(48, 5, 5, subsample=(2, 2), activation='elu')) # conv2d_3
